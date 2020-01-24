@@ -8,7 +8,7 @@ if [ "$1" = "smbd" ] ; then
     shift
   fi
 
-  smbd -F -S -s /smb.conf "$@" &
+  smbd --foreground --log-stdout --configfile /smb.conf "$@" &
 
   PID=$!
   wait $PID
